@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages";
+import { Home, Bisection } from "./pages";
 import Layout from "./components/Layout";
 
 import "./App.css";
@@ -11,7 +11,7 @@ function App() {
       name: "Roots of Equations",
       open: false,
       links: [
-        { name: "Bisection", link: "/bisection", component: <div /> },
+        { name: "Bisection", link: "/bisection", component: <Bisection /> },
         { name: "False Position", link: "/false-position", component: <div /> },
         {
           name: "One Point Iteration",
