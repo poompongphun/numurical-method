@@ -51,7 +51,7 @@ const Layout = ({ links }) => {
         >
           <List>
             {stateLink.map((data, index) => (
-              <>
+              <div key={index}>
                 <ListItemButton onClick={() => open(index)}>
                   <ListItemText primary={data.name} />
                   {data.open ? <ExpandLess /> : <ExpandMore />}
@@ -68,7 +68,7 @@ const Layout = ({ links }) => {
                     </List>
                   ))}
                 </Collapse>
-              </>
+              </div>
             ))}
           </List>
         </Box>
