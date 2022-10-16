@@ -15,20 +15,33 @@ const bisection = () => {
 
   const calcBisection = (xlVal, xrVal) => {
     const fx = (val = 0) => {
-      return Math.pow(val, 2) - 5;
+      return Math.pow(13, 1 / 4);
     };
     const result = [];
-    for (let index = 0; index < 4; index++) {
+    for (let i = 0; i < 4; i++) {
       let xm = (xlVal + xrVal) / 2;
-      let old = 0;
-      if (fx(xm) * fx(xrVal) > 0) {
-        old = xrVal;
+      const error = xm ** 4 - 13;
+      const text = (
+        <div>
+          <h3>Iteration {i + 1}</h3>
+          <p>
+            xm = {xlVal} + {xrVal} / 2 = {xm}
+          </p>
+          <p>
+            f(xm) = {xm}^4 - 13 = {error}
+          </p>
+          <p>error = {Math.abs((xm - xlVal) / xm) * 100}%</p>
+        </div>
+      );
+      result.push(text);
+      if (fx(xm) * fx(xlVal) === 0) {
+        return xm;
+      } else if (fx(xm) * fx(xlVal) < 0) {
         xrVal = xm;
       } else {
-        old = xlVal;
         xlVal = xm;
       }
-      result.push(Math.abs((xm - old) / xm));
+      result.push();
     }
     setResult(result);
   };
@@ -38,6 +51,7 @@ const bisection = () => {
       <Card>
         <CardContent>
           <h1>Bisection</h1>
+          <p>fx = 13^1/4</p>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <TextField
@@ -69,7 +83,7 @@ const bisection = () => {
           </Grid>
           <h1>Result</h1>
           {result.map((data, index) => (
-            <p key={index}>{data}</p>
+            <div key={index}>{data}</div>
           ))}
         </CardContent>
       </Card>
