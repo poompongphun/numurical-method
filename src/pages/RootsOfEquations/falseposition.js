@@ -8,33 +8,33 @@ import {
   CardContent,
 } from "@mui/material";
 
-const bisection = () => {
+const falsePostion = () => {
   const [xl, setXl] = UseState("");
   const [xr, setXr] = UseState("");
   const [result, setResult] = UseState([]);
 
-  const calcBisection = (xlVal, xrVal) => {
+  const calcFalsePostion = (xlVal, xrVal) => {
     const fx = (val = 0) => {
-      return Math.pow(13, 1 / 4);
+      return 1 / val - 43;
     };
     const result = [];
     for (let i = 0; i < 4; i++) {
-      let xm = (xlVal + xrVal) / 2;
-      const error = xm ** 4 - 13;
+      let xm =
+        (xlVal * fx(xrVal) - xrVal * fx(xlVal)) / (fx(xrVal) - fx(xlVal));
+      const error = fx(xm);
       const text = (
         <div>
           <h3>Iteration {i + 1}</h3>
           <p>
-            xm = {xlVal} + {xrVal} / 2 = {xm}
+            xm = {xlVal} * {fx(xrVal)} - {xrVal} * {fx(xlVal)} / ({fx(xrVal)} -{" "}
+            {fx(xlVal)}) = {xm};
           </p>
-          <p>
-            f(xm) = {xm}^4 - 13 = {error}
-          </p>
+          <p>f(xm) = {error}</p>
           <p>error = {Math.abs((xm - xlVal) / xm) * 100}%</p>
         </div>
       );
       result.push(text);
-      if (fx(xm) * fx(xlVal) === 0) {
+      if (fx(xm) === 0) {
         return xm;
       } else if (fx(xm) * fx(xlVal) < 0) {
         xrVal = xm;
@@ -49,8 +49,8 @@ const bisection = () => {
     <Container>
       <Card>
         <CardContent>
-          <h1>Bisection</h1>
-          <p>fx = 13^1/4</p>
+          <h1>False Position</h1>
+          <p>fx = 1/43</p>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <TextField
@@ -74,7 +74,7 @@ const bisection = () => {
               <Button
                 variant="contained"
                 disabled={xl === "" || xr === ""}
-                onClick={() => calcBisection(Number(xl), Number(xr))}
+                onClick={() => calcFalsePostion(Number(xl), Number(xr))}
               >
                 Calculate
               </Button>
@@ -89,4 +89,4 @@ const bisection = () => {
     </Container>
   );
 };
-export default bisection;
+export default falsePostion;

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Home, Bisection } from "./pages";
+import { Home, Bisection, FalsePosition } from "./pages";
 import Layout from "./components/Layout";
 
 import "./App.css";
@@ -12,7 +12,7 @@ function App() {
       open: false,
       links: [
         { name: "Bisection", link: "/bisection", component: <Bisection /> },
-        { name: "False Position", link: "/false-position", component: <div /> },
+        { name: "False Position", link: "/false-position", component: <FalsePosition /> },
         {
           name: "One Point Iteration",
           link: "/one-point-iteration",
