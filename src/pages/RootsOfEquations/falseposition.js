@@ -15,33 +15,43 @@ const falsePostion = () => {
 
   const calcFalsePostion = (xlVal, xrVal) => {
     const fx = (val = 0) => {
-      return 1 / val - 43;
+      return 43 * val - 1;
     };
     const result = [];
-    for (let i = 0; i < 4; i++) {
-      let xm =
+    let percent = 1,
+      i = 0;
+    let temp;
+    console.log(xlVal, xrVal);
+    while (percent >= 0.000001) {
+      let tmpXl = xlVal,
+        tmpXr = xrVal;
+      const xm =
         (xlVal * fx(xrVal) - xrVal * fx(xlVal)) / (fx(xrVal) - fx(xlVal));
-      const error = fx(xm);
+      const fxResult = fx(xm);
+
+      if (fx(xm) * fx(xrVal) > 0) {
+        temp = xrVal;
+        xrVal = xm;
+      } else {
+        temp = xlVal;
+        xlVal = xm;
+      }
+      percent = Math.abs((xm - temp) / xm) * 100;
+      console.log(temp);
       const text = (
         <div>
-          <h3>Iteration {i + 1}</h3>
+          <h3>Iteration {++i}</h3>
           <p>
-            xm = {xlVal} * {fx(xrVal)} - {xrVal} * {fx(xlVal)} / ({fx(xrVal)} -{" "}
-            {fx(xlVal)}) = {xm};
+            xm = {tmpXl} * {fx(tmpXr)} - {tmpXr} * {fx(tmpXl)} / ({fx(tmpXr)} -{" "}
+            {fx(tmpXl)}) = {xm};
           </p>
-          <p>f(xm) = {error}</p>
-          <p>error = {Math.abs((xm - xlVal) / xm) * 100}%</p>
+          <p>f(xm) = {fxResult}</p>
+          <p>error = {percent}%</p>
         </div>
       );
       result.push(text);
-      if (fx(xm) === 0) {
-        return xm;
-      } else if (fx(xm) * fx(xlVal) < 0) {
-        xrVal = xm;
-      } else {
-        xlVal = xm;
-      }
     }
+    console.log("end");
     setResult(result);
   };
 
