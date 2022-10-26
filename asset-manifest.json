@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/numurical-method/static/css/main.073c9b0a.css",
-    "main.js": "/numurical-method/static/js/main.779d44aa.js",
+    "main.js": "/numurical-method/static/js/main.1fd7034f.js",
     "static/js/787.cfc615bf.chunk.js": "/numurical-method/static/js/787.cfc615bf.chunk.js",
     "index.html": "/numurical-method/index.html",
     "main.073c9b0a.css.map": "/numurical-method/static/css/main.073c9b0a.css.map",
-    "main.779d44aa.js.map": "/numurical-method/static/js/main.779d44aa.js.map",
+    "main.1fd7034f.js.map": "/numurical-method/static/js/main.1fd7034f.js.map",
     "787.cfc615bf.chunk.js.map": "/numurical-method/static/js/787.cfc615bf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.779d44aa.js"
+    "static/js/main.1fd7034f.js"
   ]
 }
