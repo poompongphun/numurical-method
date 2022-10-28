@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Home, Bisection, FalsePosition, OnePointIteration } from "./pages";
+import { Home, Bisection, FalsePosition, OnePointIteration, Secant, NewTonRaphson } from "./pages";
 import Layout from "./components/Layout";
 
 import "./App.css";
@@ -22,8 +22,8 @@ function App() {
           link: "/one-point-iteration",
           component: <OnePointIteration />,
         },
-        { name: "Newton Raphson", link: "/newton-raphson", component: <div /> },
-        { name: "Secant", link: "/secant", component: <div /> },
+        { name: "Newton Raphson", link: "/newton-raphson", component: <NewTonRaphson /> },
+        { name: "Secant", link: "/secant", component: <Secant /> },
       ],
     },
     {
