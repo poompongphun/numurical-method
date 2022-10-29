@@ -3,8 +3,9 @@ import Button from "@mui/material/Button";
 const Home = () => {
   return (
     <div>
-      <h1>Opor Na hee</h1>
-      <Button variant="contained">Click me</Button>
+      <h1>Numrical Project</h1>
+      <h2>6404062610324 Pachara Worawat</h2>
+      {/* <Button variant="contained">Click me</Button> */}
     </div>
   );
 };

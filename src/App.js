@@ -84,66 +84,6 @@ function App() {
         },
       ],
     },
-    {
-      name: "Integration",
-      path: "/integration",
-      open: false,
-      links: [
-        {
-          name: "Composite Trapezoidal",
-          link: "/composite-trapezoidal",
-          component: <div />,
-        },
-        {
-          name: "Composite Simpson's 1/3",
-          link: "/composite-simpson-1-3",
-          component: <div />,
-        },
-        {
-          name: "Composite Simpson's 3/8",
-          link: "/composite-simpson-3-8",
-          component: <div />,
-        },
-        {
-          name: "Gaussian Quadrature",
-          link: "/gaussian-quadrature",
-          component: <div />,
-        },
-      ],
-    },
-    {
-      name: "Differentiation",
-      path: "/differentiation",
-      open: false,
-      component: <Home />,
-      links: [
-        {
-          name: "Forward Divided Difference",
-          link: "/forward",
-          component: <div />,
-        },
-        {
-          name: "Backward Divided Difference",
-          link: "/backward",
-          component: <div />,
-        },
-        {
-          name: "Central Divided Difference",
-          link: "/central",
-          component: <div />,
-        },
-        {
-          name: "Three Point Divided Difference",
-          link: "/three-point",
-          component: <div />,
-        },
-        {
-          name: "Five Point Divided Difference",
-          link: "/five-point",
-          component: <div />,
-        },
-      ],
-    },
   ];
 
   return (
@@ -152,7 +92,7 @@ function App() {
 
       <div style={{ marginTop: "60px" }}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home links={links} />} />
           {links.map((data, index) =>
             data.links.map((link, index) => (
               <Route path={link.link} element={link.component} />

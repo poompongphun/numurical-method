@@ -31,7 +31,7 @@ const Secant = () => {
           <p>
             x = {x0} - ({f(x0)}) / ({df(x0)}) = {x}
           </p>
-          <p>error = {Math.abs((x - x0) / x) * 100}%</p>
+          <p>error = {(Math.abs((x - x0) / x) * 100).toFixed(6)}%</p>
         </div>
       );
       result.push(text);
@@ -44,7 +44,7 @@ const Secant = () => {
       <Card>
         <CardContent>
           <h1>Secant</h1>
-          {/* <p>fx = 1/43</p> */}
+          <p>fx = root(7)</p>
           <Grid container spacing={2}>
             <Grid item xs={12} md={12}>
               <TextField

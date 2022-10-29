@@ -31,7 +31,7 @@ const newTonRaphson = () => {
           <p>
             x = {x} - ({fun(x)}) * ({x0} - {x}) / ({fun(x0)} - {fun(x)}) = {xn}
           </p>
-          <p>error = {Math.abs((xn - x) / xn) * 100}%</p>
+          <p>error = {(Math.abs((xn - x) / xn) * 100).toFixed(6)}%</p>
         </div>
       );
       result.push(text);
@@ -44,6 +44,8 @@ const newTonRaphson = () => {
       <Card>
         <CardContent>
           <h1>Newton Raphson</h1>
+          <p>fx = ln</p>
+          <p>x = 4</p>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <TextField
